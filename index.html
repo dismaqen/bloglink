@@ -1,53 +1,33 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Klik Vast Ad</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden;
-    }
-  </style>
+<meta charset="UTF-8">
+<title></title>
 </head>
 <body>
-  <!-- Inject script iklan -->
-  <script>
-    (function(inu){
-      var d = document,
-          s = d.createElement('script'),
-          l = d.scripts[d.scripts.length - 1];
-      s.settings = inu || {};
-      s.src = "\/\/spitefuldecision.com\/bzX.VYsmd\/Gpli0WYBWUcg\/be_mV9Xu\/Z\/U\/lBkhPuTJYI2DN\/jaA\/wzNAzUgntFNqjEYF2-MXDUAN3nOdQ_";
-      s.async = true;
-      s.referrerPolicy = 'no-referrer-when-downgrade';
-      l.parentNode.insertBefore(s, l);
-    })({})
-  </script>
+  <h2></h2>
 
-  <!-- Observer untuk auto buka semua link vast-blocker di halaman yang sama -->
-  <script>
-    const opened = new Set();
+  <!-- Link yang akan di-auto klik -->
+  <a href="https://badskill.online/xfGrRgsm?sub_id_1=" data-auto="true">Link 1</a><br>
+  
 
-    const observer = new MutationObserver(() => {
-      const links = document.querySelectorAll('a.vast-blocker[href]');
-      links.forEach(link => {
-        if (!opened.has(link.href)) {
-          opened.add(link.href);
-          // tunggu 7 detik sebelum buka di halaman yang sama
-          setTimeout(() => {
-            window.location.href = link.href;
-          }, 5000);
-        }
-      });
+<script>
+function autoKlikLink() {
+    // Cari semua link dengan atribut data-auto="true"
+    const links = document.querySelectorAll('a[data-auto="true"]');
+    
+    links.forEach(link => {
+        // Delay acak antara 1 sampai 3 detik
+        const delay = Math.floor(Math.random() * 2000) + 1000;
+        setTimeout(() => {
+            console.log('Klik otomatis link:', link.href);
+            link.click();
+        }, delay);
     });
+}
 
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true
-    });
-  </script>
+// Jalankan auto klik
+autoKlikLink();
+</script>
 </body>
 </html>
